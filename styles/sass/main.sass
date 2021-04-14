@@ -1,0 +1,73 @@
+@import config
+
+.container
+  background: url(../images/dist/astronaut.png) no-repeat top right
+
+.header
+  &-container
+    display: flex
+    align-items: center
+    height: 700px
+    &-text
+      h1
+        color: $accent
+        font-size: 180px
+        font-weight: 300
+        line-height: 160px
+        margin-top: 35px
+        span
+          color: $textcolor
+.articles
+  padding-bottom: 150px
+  &-item
+    display: flex
+    background: $itemcolor
+    padding: 50px 50px 64px
+    &:not(:last-of-type)
+      margin-bottom: 20px
+    &-img
+      margin-right: 60px
+      &__logo
+        background: rgba($accent, .7)
+        border-radius: 50%
+        padding: 17px 
+    &-text
+      h3
+        font-weight: 400
+        color: $accent
+        font-size: 24px
+        letter-spacing: 7px 
+      h2
+        font-weight: 400
+        font-size: 72px
+        line-height: 72px
+      p
+        margin-top: 40px
+        font-size: 18px
+        line-height: 25px
+        font-family: Ubuntu
+      &-marks
+        margin-top: 40px
+        display: flex
+        &__item
+          font-size: 24px
+          font-weight: 300
+          letter-spacing: 2px
+          &:not(:last-child)
+            margin-right: 36px
+          &__img
+            display: inline-block
+            margin-right: 5px
+            width: 35px
+            text-align: center
+  
+                    
+@import media
+          
+
+
+
+
+
+
+    

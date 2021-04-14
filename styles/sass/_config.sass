@@ -1,0 +1,78 @@
+// USER VARIABLES SECTION
+
+$accent: #17A1CC // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #fff // Text Color
+$bgcolor: #151418
+$itemcolor: #22242bbe
+$lineheight: 1.65 // Document Line Height
+$userfont: Teko, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/animate.css/animate.min' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('teko', light, 300, '../fonts/Teko/Teko-Light.woff2')
+@include font('teko', normal, 400, '../fonts/Teko/Teko-Regular.woff2')
+@include font('ubuntu', light, 300, '../fonts/Ubuntu/Ubuntu-Light.woff2')
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	background: $bgcolor
+
+li
+	list-style-type: none
+
+p
+	margin: 0
+
+a, a:hover, a:active, a:visited
+	color: #fff
+	text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+
+.container
+	max-width: 1160px
+	margin: 0 auto			
