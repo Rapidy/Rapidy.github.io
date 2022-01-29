@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.706b58c1.css",
-    "main.js": "./static/js/main.7da5ffa3.js",
-    "static/media/emoticon-giving-a-hand-393.png": "./static/media/emoticon-giving-a-hand-393.9d6da7171f9915c17dc7.png",
-    "index.html": "./index.html",
-    "main.706b58c1.css.map": "./static/css/main.706b58c1.css.map",
-    "main.7da5ffa3.js.map": "./static/js/main.7da5ffa3.js.map"
+    "main.css": "./profilance/static/css/main.706b58c1.css",
+    "main.js": "./profilance/static/js/main.515c6870.js",
+    "static/media/emoticon-giving-a-hand-393.png": "./profilance/static/media/emoticon-giving-a-hand-393.9d6da7171f9915c17dc7.png",
+    "index.html": "./profilance/index.html",
+    "main.706b58c1.css.map": "./profilance/static/css/main.706b58c1.css.map",
+    "main.515c6870.js.map": "./profilance/static/js/main.515c6870.js.map"
   },
   "entrypoints": [
     "static/css/main.706b58c1.css",
-    "static/js/main.7da5ffa3.js"
+    "static/js/main.515c6870.js"
   ]
 }
