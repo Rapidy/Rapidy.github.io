@@ -1,1 +1,68 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="./favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet"><link rel="apple-touch-icon" href="./logo192.png"/><link rel="manifest" href="./manifest.json"/><title>React App</title><script defer="defer" src="./static/js/main.d11b97d4.js"></script><link href="./static/css/main.706b58c1.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    font-family: sans-serif;
+  }
+
+  h3 {
+    margin: 3px 0;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+</style>
+
+<body>
+  <h3>Процент: <span id="percent"></span></h3>
+  <h3>Общая сумма: <span id="amount"></span></h3>
+  <h3>Взнос: <span id="downpayment"></span></h3>
+  <h3>Сумма к оплате: <span id="amountToPay"></span></h3>
+  <h3>Всего дней: <span id="totalDays"></span></h3>
+  <h3>Дней осталось: <span id="daysLeft"></span></h3>
+  <h3>Дней оплачено: <span id="paidDays"></span></h3>
+
+  <div></div>
+
+</body>
+
+<script>
+  const paidDays = 0;
+
+  const percent = 10;
+  const amount = 1000000;
+  const percentOfAmount = amount * (percent / 100);
+  const amountWithPercent = amount + percentOfAmount;
+
+  const downpayment = 400000;
+  const amountToPay = amountWithPercent - downpayment;
+  const totalDays = 23;
+  const daysLeft = totalDays - paidDays
+
+  document.getElementById('percent').innerText = `${percent}%`
+  document.getElementById('amount').innerText = amount.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
+  document.getElementById('downpayment').innerText = downpayment.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
+  document.getElementById('amountToPay').innerText = amountToPay.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
+  document.getElementById('totalDays').innerText = totalDays
+  document.getElementById('daysLeft').innerText = daysLeft
+  document.getElementById('paidDays').innerText = paidDays
+
+  for (let i = 1; i <= daysLeft; i++) {
+    const p = document.createElement('p');
+    p.innerText = `День ${i + paidDays}: ${Math.round(amountToPay / totalDays).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)}`
+
+    document.body.appendChild(p)
+  }
+
+</script>
+
+</html>
