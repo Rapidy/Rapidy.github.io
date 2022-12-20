@@ -20,6 +20,11 @@
   p {
     margin: 10px 0;
   }
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr  ;
+  }
 </style>
 
 <body>
@@ -27,12 +32,19 @@
   <h3>Общая сумма: <span id="amount"></span></h3>
   <h3>Взнос: <span id="downpayment"></span></h3>
   <h3>Сумма к оплате: <span id="amountToPay"></span></h3>
+  <hr>
   <h3>Всего дней: <span id="totalDays"></span></h3>
   <h3>Дней осталось: <span id="daysLeft"></span></h3>
   <h3>Дней оплачено: <span id="paidDays"></span></h3>
+  <hr>
+  <h3>Сумма просрочки: <span id="amountOfUnpaid"></span></h3>
+  <h3>Дней просрочено: <span id="unpaidDays"></span></h3>
+  <hr>
+  <br>
 
-  <div></div>
-
+  <div>
+    
+  </div>
 </body>
 
 <script>
@@ -43,10 +55,12 @@
   const percentOfAmount = amount * (percent / 100);
   const amountWithPercent = amount + percentOfAmount;
 
-  const downpayment = 400000;
+  const downpayment = 0;
   const amountToPay = amountWithPercent - downpayment;
-  const totalDays = 23;
-  const daysLeft = totalDays - paidDays
+  const totalDays = 40;
+  const daysLeft = totalDays - paidDays;
+  const unpaidDays = 0;
+  const amountOfUnpaid = (amountWithPercent / 100) * 0.5 * unpaidDays;
 
   document.getElementById('percent').innerText = `${percent}%`
   document.getElementById('amount').innerText = amount.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
@@ -55,12 +69,14 @@
   document.getElementById('totalDays').innerText = totalDays
   document.getElementById('daysLeft').innerText = daysLeft
   document.getElementById('paidDays').innerText = paidDays
+  document.getElementById('unpaidDays').innerText = unpaidDays
+  document.getElementById('amountOfUnpaid').innerText = amountOfUnpaid
 
   for (let i = 1; i <= daysLeft; i++) {
     const p = document.createElement('p');
     p.innerText = `День ${i + paidDays}: ${Math.round(amountToPay / totalDays).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)}`
 
-    document.body.appendChild(p)
+    document.getElementsByTagName("div")[0].appendChild(p)
   }
 
 </script>
