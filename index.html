@@ -37,7 +37,7 @@
   <h3>Процент: <span id="percent"></span></h3>
   <h3>Общая сумма: <span id="amount"></span></h3>
   <h3>Взнос: <span id="downpayment"></span></h3>
-  <h3>Сумма к оплате: <span id="amountToPay"></span></h3>
+  <h3>Всего оплачено: <span id="paidAmount"></span></h3>
   <hr>
   <h3>Всего дней: <span id="totalDays"></span></h3>
   <h3>Дней осталось: <span id="daysLeft"></span></h3>
@@ -69,22 +69,25 @@
   const unpaidDays = 0;
   const amountOfUnpaid = (amountWithPercent / 100) * 0.5 * unpaidDays;
 
+  const payday = Math.round(amountToPay / totalDays);
+  const paidAmount = paidDays * payday;
+
   const editDate = '21.12.2022';
 
   document.getElementById('percent').innerText = `${percent}%`
   document.getElementById('amount').innerText = amount.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
   document.getElementById('downpayment').innerText = downpayment.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
-  document.getElementById('amountToPay').innerText = amountToPay.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
   document.getElementById('totalDays').innerText = totalDays
   document.getElementById('daysLeft').innerText = daysLeft
   document.getElementById('paidDays').innerText = paidDays
   document.getElementById('unpaidDays').innerText = unpaidDays
   document.getElementById('amountOfUnpaid').innerText = amountOfUnpaid
+  document.getElementById('paidAmount').innerText = `${paidAmount.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)} / ${amountToPay.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)}`
   document.getElementById('editDate').innerText = editDate
 
   for (let i = 1; i <= daysLeft; i++) {
     const p = document.createElement('p');
-    p.innerText = `День ${i + paidDays}: ${Math.round(amountToPay / totalDays).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)}`
+    p.innerText = `День ${i + paidDays}: ${payday.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)}`
 
     document.getElementsByTagName("div")[0].appendChild(p)
   }
