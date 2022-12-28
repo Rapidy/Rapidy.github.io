@@ -59,7 +59,7 @@
 </body>
 
 <script>
-  let paidDays = 7; // менять
+  let paidDays = 10; // менять
 
   const percent = 10;
   const amount = 1000000;
@@ -76,7 +76,7 @@
   const payday = Math.round(amountToPay / totalDays);
   const paidAmount = paidDays * payday;
 
-  const editDate = '26.12.2022'; // менять
+  const editDate = '28.12.2022'; // менять
 
   document.getElementById('percent').innerText = `${percent}%`
   document.getElementById('amount').innerText = amount.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.').slice(0, -2)
